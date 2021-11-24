@@ -7,12 +7,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.text_field :username, autofocus: true, class:"form-control", autocomplete: "name", placeholder:"Name" %>
+    <%= f.text_field :username, autofocus: true, class:"form-control", autocomplete: "username", placeholder:"Name" %>
     <br>
   </div>
 
   <div class="field">
-    <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email", placeholder:"Email" %>
+    <%= f.email_field :email, class:"form-control", autocomplete: "email", placeholder:"Email" %>
     <br>
   </div>
 
