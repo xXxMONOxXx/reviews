@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/update'
+  get 'favorites/index'
   devise_for :users, :path_prefix => 'd'
   resources :users, :only =>[:show] do 
     member do

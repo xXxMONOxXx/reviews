@@ -1,0 +1,6 @@
+<h1>Liked posts</h1>
+
+<% current_user.favorites.each do |favorite| %>
+	<%= link_to favorite.review.title %>
+</br>
+<% end %>

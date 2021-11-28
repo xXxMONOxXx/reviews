@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1 or /reviews/1.json
   def show
+    @favorite_exists = Favorite.where(review: @review, user: current_user) == [] ? false : true
   end
 
   # GET /reviews/new

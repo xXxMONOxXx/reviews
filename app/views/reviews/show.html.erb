@@ -15,5 +15,5 @@
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
-<% link_to 'Like', '#' %>
+<%= link_to 'Back', reviews_path %> |
+<%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true %>
