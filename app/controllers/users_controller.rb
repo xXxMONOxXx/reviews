@@ -12,17 +12,17 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     if params[:admin].present? && params[:admin]!=true && params[:admin]!=false
       @user.update(admin: params[:admin])
-      redirect_to @user, notice: "Role changed."
+      redirect_to @user, notice: t('alerts.user.role_changed')
     else
-      redirect_to @user, alert: "Invalid parameter for role."
+      redirect_to @user, alert: t('alerts.user.invalid_role')
     end
   end
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice:"User was successfully updated."
+      redirect_to @user, notice: t('alerts.user.successfully_updated')
     else
-      redirect_to @user, notice:"User wasn't updated."
+      redirect_to @user, notice: t('alerts.user.wasnt_updated')
     end
   end
 end

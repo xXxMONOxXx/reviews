@@ -1,14 +1,14 @@
-<h1>Liked posts</h1>
+<h1><%= t 'liked_reviews' %></h1>
 
 <% if current_user.favorites.empty? %>
-	<h3>There aren't any liked posts.</h3>
+	<h3><%= t 'no_liked_reviews' %></h3>
 
 <% else %>
 	</br>
 	<table class="table table-striped table-bordered table-hover">
   	<thead>
     	<tr>
-      	<th>Title</th>
+      	<th><%= t 'title' %></th>
     	</tr>
   	</thead>
 

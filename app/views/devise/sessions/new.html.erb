@@ -1,17 +1,17 @@
 <div class="card">
   <div class="card-header">
-    <h4>Log in</h4>
+    <h4><%= t 'sign_in' %></h4>
   </div>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field form-group">
-    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
+    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder: t('email') %>
   </div>
 
 <br>
 
   <div class="field form-group">
-    <%= f.password_field :password, class:"form-control", autocomplete: "current-password", placeholder:"Password" %>
+    <%= f.password_field :password, class:"form-control", autocomplete: "current-password", placeholder: t('password') %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -24,7 +24,7 @@
 <br>
 
   <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-secondary"%>
+    <%= f.submit t('sign_in'), class: "btn btn-secondary"%>
   </div>
 <% end %>
   </div>

@@ -1,5 +1,5 @@
-<h1>Create Review</h1>
+<h1><%= t 'create_review' %></h1>
 
 <%= render 'form', review: @review %>
 
-<%= link_to 'Back', reviews_path, class:"btn btn-secondary" %>
+<%= link_to t('back'), reviews_path, class:"btn btn-secondary" %>

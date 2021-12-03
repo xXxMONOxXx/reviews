@@ -13,11 +13,11 @@
 
 
   <div class="field form-group">
-    <%= form.text_field :title, minlength:3 , maxlength:32, class:"form-control", placeholder:"Title"%>
+    <%= form.text_field :title, minlength:3 , maxlength:32, class:"form-control", placeholder: t('title')%>
   </div>
 
   <div class="field form-group">
-    <%= form.number_field :rating, min:1, max:10, placeholder: "Rating (1-10)" %>
+    <%= form.number_field :rating, min:1, max:10, placeholder: t('review_form.rating_place') %>
   </div>
 
   <div class="field form-group">

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   	end
 
   	def favorite_text
-  		return @favorite_exists ? 'Unlike' : 'Like'
+  		return @favorite_exists ? t('liked_page.unlike') : t('liked_page.like')
   	end
 
   	helper_method :favorite_text

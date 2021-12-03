@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-<h4>Edit Profile<% resource_name.to_s.humanize %></h4>
+<h4><%= t 'edit_profile' %> <% resource_name.to_s.humanize %></h4>
   </div>
   <div class="card-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -8,7 +8,7 @@
 
   <div class="field form-group">
     <br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class:"form-control", placeholder:"Name" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class:"form-control", placeholder: t('devise.username') %>
   </div>
 
   <div class="field form-group">
@@ -22,47 +22,45 @@
 
   <div class="field form-group">
     
-    <%= f.password_field :password, autocomplete: "new-password", class:"form-control",placeholder:"Password"%>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control",placeholder: t('password')%>
     <% if @minimum_password_length %>
-      <i><%= @minimum_password_length %> characters minimum</i>
+      <i><%= @minimum_password_length %> <%= t('characters_minimum') %></i>
     <% end %>
-    <i>(leave blank if you don't want to change it)</i>
+    <i>(<%= t 'leave_blank_if_not_change' %>)</i>
   </div>
 
   <div class="field form-group">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Password confirmation"%>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:t('password_confirmation')%>
   </div>
 
   <div class="field form-group">
-    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder:"Current password"%>
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", placeholder: t('current_password')%>
     <br />
-    <i>(we need your current password to confirm your changes)</i>
+    <i>(<%= t 'need_current_pass_to_confirm' %>)</i>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class:"btn btn-secondary"%>
+    <%= f.submit t('update'), class:"btn btn-secondary"%>
   </div>
 <% end %>
 
 <br>
-
-
   </div>
 </div>
 
 
 <div class="card">
   <div class="card-header">
-    <h4>Cancel my account</h4>
+    <h4></h4>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Unhappy?</h5>
-    <p class="card-text"><%= button_to "Cancel my account",  registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger"%></p>
+    <h5 class="card-title"><%= t 'unhappy' %></h5>
+    <p class="card-text"><%= button_to t('cancel_account'),  registration_path(resource_name), data: { confirm: t('are_you_sure') }, method: :delete, class:"btn btn-danger"%></p>
   </div>
 </div>
 
 
 <br>
 
-<%= link_to "Back", :back, class:"btn btn-dark" %>
+<%= link_to t('back'), :back, class:"btn btn-dark" %>
 
