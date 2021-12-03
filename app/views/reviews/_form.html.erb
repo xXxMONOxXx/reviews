@@ -11,44 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+
+  <div class="field form-group">
+    <%= form.text_field :title, minlength:3 , maxlength:32, class:"form-control", placeholder:"Title"%>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %><br>
-    <%= form.number_field :rating %>
+  <div class="field form-group">
+    <%= form.number_field :rating, min:1, max:10, placeholder: "Rating (1-10)" %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-<fieldset class="rating">
-    <input type="radio" id="star" name="rating" value="5" />
-    <label for="star5">5 stars</label>
-    <input type="radio" id="star" name="rating" value="4" />
-    <label for="star4">4 stars</label>
-    <input type="radio" id="star" name="rating" value="3" />
-    <label for="star3">3 stars</label>
-    <input type="radio" id="star" name="rating" value="2" />
-    <label for="star2">2 stars</label>
-    <input type="radio" id="star" name="rating" value="1" />
-    <label for="star">1 star</label>
-</fieldset>
-  <div class="field">
-    <%= form.label :content %>
+  <div class="field form-group">
     <%= form.rich_text_area :content %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 
-  <div class="field form-group">
-    <%= form.number_field :user_id, id: :review_user_id, class:"form-control" , value:current_user.id, type:"hidden" %>
-  </div>
+  <% if review.user_id == nil %>
+    <div class="field form-group">
+      <%= form.number_field :user_id, id: :review_user_id, class:"form-control" , value:current_user.id, type:"hidden" %>
+    </div>
+  <% end %>
 
 <% end %>

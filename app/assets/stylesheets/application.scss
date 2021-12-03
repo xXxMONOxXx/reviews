@@ -5,12 +5,31 @@ $dark_gray: #181818;
 $light_gray: #404040;
 
 body.light, td {
+    .btn-dark{
+        color:white
+    }
+    a{
+        color: $black
+    }
 	nav{
 		background-color: lightgray;
 	}
 }
 
 body.dark{
+    .btn-light{
+        color: $black
+    }
+    a{
+        color: lightgray
+    }
+    trix-toolbar .trix-button-group button {
+        background-color: $light_gray;
+    }
+    .card{
+        color: white;
+        background-color: $black;
+    }
 	nav{
 		color: white;
 		background-color: $black;

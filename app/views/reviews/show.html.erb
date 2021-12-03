@@ -1,19 +1,21 @@
 <p>
-  <strong>Title:</strong>
+  <strong>Review by:</strong>
+    <%= @review.user.username %>
+</p>
+
+<p>
     <%= @review.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @review.body %>
+  <strong>Rating:</strong>
+    <%= @review.rating %>
 </p>
 
-
 <p>
-  <strong>Content:</strong>
   <%= @review.content %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %> |
-<%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true %>
+<%= link_to 'Edit', edit_review_path(@review), class:"btn btn-primary" %>
+<%= link_to 'Back', reviews_path, class:"btn btn-secondary" %>
+<%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true, class:"btn btn-primary" %>

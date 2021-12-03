@@ -1,6 +1,23 @@
 <h1>Liked posts</h1>
 
-<% current_user.favorites.each do |favorite| %>
-	<%= link_to favorite.review.title %>
-</br>
+<% if current_user.favorites.empty? %>
+	<h3>There aren't any liked posts.</h3>
+
+<% else %>
+	</br>
+	<table class="table table-striped table-bordered table-hover">
+  	<thead>
+    	<tr>
+      	<th>Title</th>
+    	</tr>
+  	</thead>
+
+  	<tbody>
+    <% current_user.favorites.each do |favorite| %>
+      <tr>
+          <td><%= link_to favorite.review.title, favorite.review %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
 <% end %>
