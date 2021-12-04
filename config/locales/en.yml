@@ -37,6 +37,12 @@ en:
   remember_me: "Remember me"
   review_by: "Review by"
   language: "Language"
+  search: "Search"
+  search_results: "Search results"
+
+  will_paginate:
+    previous_label: "<-Previous "
+    next_label: " Next->"
 
 
   liked_page:

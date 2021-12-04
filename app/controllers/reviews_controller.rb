@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
 
+  NUMBER_OF_REVIEWS_ON_PAGE = 10
+
   def search
     if params[:search].blank?
       redirect_to reviews_path and return
@@ -12,7 +14,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
   end
 
   # GET /reviews/1 or /reviews/1.json

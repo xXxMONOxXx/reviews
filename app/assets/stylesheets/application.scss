@@ -5,11 +5,16 @@ $dark_gray: #181818;
 $light_gray: #404040;
 
 body.light, td {
+
+
+    .custom-toggler.navbar-toggler {
+        border-color: $black;
+    } 
     .btn-dark{
-        color:white
+        color:white;
     }
     a{
-        color: $black
+        color: $black;
     }
 	nav{
 		background-color: lightgray;
@@ -17,8 +22,11 @@ body.light, td {
 }
 
 body.dark{
+    .custom-toggler.navbar-toggler {
+        border-color: white;
+    } 
     .dropdown-menu{
-        background-color: $light_gray
+        background-color: $light_gray;
     }
 
     .btn-light{
