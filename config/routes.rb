@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   get 'favorites/update'
   get 'favorites/index'
   devise_for :users, :path_prefix => 'd'
@@ -12,4 +14,7 @@ Rails.application.routes.draw do
   root 'reviews#index'
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',     to: 'users#show',       via: 'get'
+  end
+
+  
 end

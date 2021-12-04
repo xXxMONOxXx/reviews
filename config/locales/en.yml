@@ -34,6 +34,9 @@ en:
   need_current_pass_to_confirm: "we need your current password to confirm your changes"
   update: "Update"
   forgot_pass: "Forgot your password?"
+  remember_me: "Remember me"
+  review_by: "Review by"
+  language: "Language"
 
 
   liked_page:

@@ -17,6 +17,10 @@ body.light, td {
 }
 
 body.dark{
+    .dropdown-menu{
+        background-color: $light_gray
+    }
+
     .btn-light{
         color: $black
     }

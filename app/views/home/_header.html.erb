@@ -1,12 +1,16 @@
 <nav class="navbar navbar-expand-lg rounded">
-  <div class="container-fluid">
-    <%= link_to t('reviews'), root_path, class:"navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+  <div class="container-fluid">
+
+    <%= link_to t('reviews'), root_path, class:"navbar-brand" %>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon btn-secondary btn"></span>
+        </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -14,23 +18,6 @@
           </li>
         <% end %>
 
-        <% if !user_signed_in? %>
-          <li class="nav-item">
-           <%= link_to t('sign_in'), new_user_session_path , class:"nav-link" %>
-          </li>
-        <% end %>
-
-        <% if !user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to t('sign_up'), new_user_registration_path , class:"nav-link" %>
-          </li>
-        <% end %>
-
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to t('sing_out'), destroy_user_session_path, method: :delete , class:"nav-link" %>
-          </li>
-        <% end %>
 
         <% if user_signed_in? %>
           <li class="nav-item">
@@ -52,24 +39,54 @@
           </li>
         <% end %>
 
-        <ul class="navbar-nav ml-auto">
-          <li>
+        <li class="nav-item">
             <% if cookies[:theme] == "light" %>
-              <%= link_to t('go_dark'), root_path(theme: "dark"), class: "btn btn-dark" %>
+              <%= link_to t('go_dark'), root_path(theme: "dark"), class:"nav-link"%>
             <% else %>
-              <%= link_to t('go_light'), root_path(theme: "light"), class: "btn btn-light" %>
+              <%= link_to t('go_light'), root_path(theme: "light"), class:"nav-link"%>
             <% end %>
-          </li>
-        </ul>
+        </li>
 
-        <% if user_signed_in? %>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= t 'language' %>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul>
+              <li><%= link_to 'English', root_path(locale: :en) %></li>
+              <li><%= link_to 'Русский', root_path(locale: :ru) %></li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+
+        <% if !user_signed_in? %>
           <li class="nav-item">
-            <%= link_to current_user.username , current_user , class:"nav-link" %>
+           <%= link_to t('sign_in'), new_user_session_path , class:"nav-link" %>
           </li>
         <% end %>
 
+        <% if !user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to t('sign_up'), new_user_registration_path , class:"nav-link" %>
+          </li>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to t('sign_out'), destroy_user_session_path, method: :delete , class:"nav-link" %>
+          </li>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <li class="nav-item ml-auto">
+            <%= link_to current_user.username , current_user , class:"nav-link" %>
+          </li>
+        <% end %>
       </ul>
+      
     </div>
   </div>
-
 </nav>

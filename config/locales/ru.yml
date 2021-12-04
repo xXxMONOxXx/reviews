@@ -1,0 +1,66 @@
+ru:
+  reviews: "Обзоры"
+  review: "Обзор"
+  title: "Заголовок"
+  edit: "Редактировать"
+  delete: "Удалить"
+  new_review: "Новый обзор"
+  are_you_sure: "Вы уверены?"
+  create_review: "Создать обзор"
+  sign_in: "Войти"
+  sign_out: "Выйти"
+  sign_up: "Зарегистрироваться"
+  edit_profile: "Редактировать профиль"
+  users: "Пользователи"
+  liked: "Понравившееся"
+  go_light: "Светлая"
+  go_dark: "Тёмная"
+  show: "Показать"
+  back: "Назад"
+  role: "Роль"
+  admin: "Админ"
+  user: "Пользователь"
+  promote_to_admin: "Повысить до администратора"
+  dismiss_from_admin: "Снять с администратора"
+  rating: "Рейтинг"
+  cancel_account: "Удалить мой аккаунт"
+  unhappy: "Не нравиться?"
+  password: "Пароль"
+  current_password: "Текущий пароль"
+  password_confirmation: "Подтверждающий пароль"
+  email: "Почта"
+  leave_blank_if_not_change: "оставьте пустым, если не хотите ничего менять"
+  characters_minimum: "символов минимально"
+  need_current_pass_to_confirm: "нам нужен ваш текущий пароль для подтверждения изменений"
+  update: "Обновить"
+  forgot_pass: "Забыли пароль?"
+  remember_me: "Запомнить меня"
+  review_by: "Обзор от"
+  language: "Язык"
+
+
+
+  liked_page:
+    liked_reviews: "Понравившееся обзоры"
+    no_liked_reviews: "Нету понравившихся обзоров."
+    like: "Лайк"
+    unlike: "Дизлайк"
+
+  review_form:
+    rating_place: "Рейтинг (1-10)"
+    editting_review: "Редактирование обзора"
+
+  devise:
+    username: "Имя"
+
+  alerts:
+    review:
+      successfully_created: "Обзор был успешно создан."
+      successfully_updated: "Обзор был успешно обовлён."
+      successfully_destroyed: "Обзор был успешно удалён."
+
+    user:
+      role_changed: "Роль была изменена."
+      invalid_role: "Неверный параметр для роли."
+      successfully_updated: "Пользователь был успешно обновлён."
+      wasnt_updated: "Пользователь не был обновлён."
