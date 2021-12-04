@@ -1,6 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
 
+  def search
+    if params[:search].blank?
+      redirect_to reviews_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Review.all.where("lower(reviews.title) LIKE :search OR lower(reviews.rating) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   # GET /reviews or /reviews.json
   def index
     @reviews = Review.all
