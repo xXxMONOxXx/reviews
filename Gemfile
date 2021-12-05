@@ -30,7 +30,10 @@ gem 'will_paginate-bootstrap4'
 
 gem 'pg', '~> 1.2', '>= 1.2.3'
 
-#  gem 'sqlite3', '~> 1.4'
+gem 'pg_search'
+
+gem 'acts-as-taggable-on', '~> 8.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

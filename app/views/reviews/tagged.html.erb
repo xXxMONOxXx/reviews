@@ -1,31 +1,11 @@
-<h1> <%= @user.username %> </h1>
-
-<p>
-<strong><%= t 'role' %>:</strong>
-
-<% if @user.admin %>
-    <%=  t 'admin' %>
-    <%= link_to_unless @user.admin.eql?(false), t('dimiss_from_admin'), change_role_user_path(@user, admin:false), method: :patch, class:"btn btn-danger" %>
-  <% else %>
-    <%= t 'user' %>
-    <%= link_to_unless @user.admin.eql?(true), t('promote_to_admin'), change_role_user_path(@user, admin:true), method: :patch, class:"btn btn-primary" %>
-  <% end %>
-  
-</p>
-
-<%= @user.email %>
-
-</br>
-
-</br>
-
-<h2><%= t 'reviews' %></h2>
+<h1><%= t 'reviews' %></h1>
 
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
       <th><%= t 'title' %></th>
       <th colspan="2"></th>
+      <th><%= t 'author' %></th>
       <th><%= t 'tags' %></th>
     </tr>
   </thead>
@@ -36,6 +16,7 @@
         <td><%= link_to review.title, review %></td>
         <td><%= link_to t('edit') , edit_review_path(review) %></td>
         <td><%= link_to t('delete'), review, method: :delete, data: { confirm: t('are_you_sure') } %></td>
+        <td><%= review.user.username %></td>
         <td>
           <p>
             <% review.tag_list.each do |tag| %>

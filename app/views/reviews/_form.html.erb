@@ -17,7 +17,11 @@
   </div>
 
   <div class="field form-group">
-    <%= form.number_field :rating, min:1, max:10, placeholder: t('review_form.rating_place') %>
+    <%= form.text_field :tag_list, class:"form-control", value: @review.send(:tag_list).to_s, placeholder: t('tags_placeholder')%>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :rating, min:1, max:10, class:"form-control", placeholder: t('review_form.rating_place') %>
   </div>
 
   <div class="field form-group">

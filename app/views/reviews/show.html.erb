@@ -8,6 +8,13 @@
 </p>
 
 <p>
+  <strong><%= t 'tags' %>:</strong>
+  <% @review.tag_list.each do |tag| %>
+    <%= link_to tag, tagged_path(tag: tag) %>
+  <% end %> 
+</p>
+
+<p>
   <strong><%= t 'rating' %>:</strong>
     <%= @review.rating %>
 </p>
@@ -17,5 +24,4 @@
 </p>
 
 <%= link_to t('edit'), edit_review_path(@review), class:"btn btn-primary" %>
-<%= link_to t('back'), reviews_path, class:"btn btn-secondary" %>
 <%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true, class:"btn btn-primary" %>

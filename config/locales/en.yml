@@ -39,6 +39,11 @@ en:
   language: "Language"
   search: "Search"
   search_results: "Search results"
+  no_results: "No results"
+  cancel: "Cancel"
+  author: "Author"
+  tags: "Tags"
+  tags_placeholder: "Tags(movie, book, food...)"
 
   will_paginate:
     previous_label: "<-Previous "

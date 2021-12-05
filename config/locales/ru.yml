@@ -39,8 +39,11 @@ ru:
   language: "Язык"
   search: "Поиск"
   search_results: "Результаты поиска"
-
-
+  no_results: "Нет подходящих обзоров"
+  author: "Автор"
+  cancel: "Отмена"
+  tags: "Теги"
+  tags_placeholder: "Tags(movie, book, food...)"
 
   liked_page:
     liked_reviews: "Понравившееся обзоры"

@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
+
+  NUMBER_OF_REVIEWS_ON_PAGE = 10
+  
   def index
-    @users = User.all
+    @users = User.all.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
   end
 
   def show
     @user = User.find_by_id(params[:id])
-    @reviews = Review.all
+    @reviews = Review.all.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
   end
 
   def change_role

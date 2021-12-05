@@ -4,17 +4,24 @@ class ReviewsController < ApplicationController
   NUMBER_OF_REVIEWS_ON_PAGE = 10
 
   def search
-    if params[:search].blank?
-      redirect_to reviews_path and return
+    if params[:search].present?
+      @results = Review.order(created_at: :desc).global_search(params[:search])
     else
-      @parameter = params[:search].downcase
-      @results = Review.all.where("lower(reviews.title) LIKE :search OR lower(reviews.rating) LIKE :search", search: "%#{@parameter}%")
+      @results = Review.order(created_at: :desc)
+    end
+  end
+
+  def tagged
+    if params[:tag].present?
+      @reviews = Review.tagged_with(params[:tag]).paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
+    else
+      @reviews = Review.all.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
     end
   end
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
+    @reviews = Review.all.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
   end
 
   # GET /reviews/1 or /reviews/1.json
@@ -61,6 +68,15 @@ class ReviewsController < ApplicationController
 
   # DELETE /reviews/1 or /reviews/1.json
   def destroy
+    
+    users = User.all
+    users.each do |user|
+      favorite = Favorite.where(review: @review, user: user)
+      if favorite != []
+        favorite.destroy_all
+      end
+    end
+
     @review.destroy
     respond_to do |format|
       format.html { redirect_to reviews_url, notice:t('alerts.review.successfully_destroyed') }
@@ -76,6 +92,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:title, :body, :user_id, :content, :rating)
+      params.require(:review).permit(:title, :body, :user_id, :content, :rating, :tag_list)
     end
 end
