@@ -28,6 +28,10 @@ gem 'will_paginate', '~> 3.3'
 
 gem 'will_paginate-bootstrap4'
 
+gem 'pg', '~> 1.2', '>= 1.2.3'
+
+#  gem 'sqlite3', '~> 1.4'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -37,11 +41,10 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :production do 
-  gem 'pg', '~> 1.2', '>= 1.2.3'
+  
 end
 
 group :test do

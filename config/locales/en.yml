@@ -49,7 +49,7 @@ en:
     liked_reviews: "Liked reviws"
     no_liked_reviews: "There aren't any liked review."
     like: "Like"
-    unlike: "Unslike"
+    unlike: "Unlike"
 
   review_form:
     rating_place: "Rating (1-10)"
