@@ -33,6 +33,7 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
+        <% if @user.id == review.user_id %>
         <td><%= link_to review.title, review %></td>
         <td><%= link_to t('edit') , edit_review_path(review) %></td>
         <td><%= link_to t('delete'), review, method: :delete, data: { confirm: t('are_you_sure') } %></td>
@@ -42,7 +43,8 @@
               <%= link_to tag, tagged_path(tag: tag) %>
             <% end %> 
           </p>
-      </td>
+        </td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

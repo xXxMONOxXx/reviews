@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th><%= t 'title' %></th>
-      <th colspan="2"></th>
       <th><%= t 'author' %></th>
       <th><%= t 'tags' %></th>
     </tr>
@@ -12,8 +11,6 @@
     <% @reviews.each do |review| %>
       <tr>
         <td><%= link_to review.title, review %></td>
-        <td><%= link_to t('edit') , edit_review_path(review) %></td>
-        <td><%= link_to t('delete'), review, method: :delete, data: { confirm: t('are_you_sure') } %></td>
         <td><%= review.user.username %></td>
         <td>
           <p>

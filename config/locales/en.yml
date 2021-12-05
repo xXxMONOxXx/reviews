@@ -44,6 +44,7 @@ en:
   author: "Author"
   tags: "Tags"
   tags_placeholder: "Tags(movie, book, food...)"
+  save: "Save"
 
   will_paginate:
     previous_label: "<-Previous "
@@ -68,9 +69,11 @@ en:
       successfully_created: "Review was successfully created."
       successfully_updated: "Review was successfully updated."
       successfully_destroyed: "Review was successfully deleted."
+      not_auth_user: "Not authorized to edit this review."
 
     user:
       role_changed: "Role changed."
       invalid_role: "Invalid parameter for role."
       successfully_updated: "User was successfully updated."
       wasnt_updated: "User wasn't updated."
+      not_auth_user: "Not authorized to do that action."

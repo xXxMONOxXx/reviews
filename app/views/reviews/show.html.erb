@@ -23,5 +23,9 @@
   <%= @review.content %>
 </p>
 
-<%= link_to t('edit'), edit_review_path(@review), class:"btn btn-primary" %>
-<%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true, class:"btn btn-primary" %>
+<% if user_signed_in? %>
+  <% if current_user.id == @review.user_id || current_user.admin %>
+    <%= link_to t('edit'), edit_review_path(@review), class:"btn btn-primary" %>
+  <% end %>
+  <%= link_to favorite_text, favorites_update_path(review: @review), id: 'favorite_link', remote: true, class:"btn btn-primary" %>
+<% end %>

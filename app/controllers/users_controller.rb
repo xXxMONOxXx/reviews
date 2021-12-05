@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
 
+  before_action :correct_user, only: [:index, :show, :change_role]
+
   NUMBER_OF_REVIEWS_ON_PAGE = 10
+
+  def correct_user
+    if !current_user.admin
+      redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+    end
+  end
   
   def index
     @users = User.all.paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)

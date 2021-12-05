@@ -1,13 +1,21 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: [:update, :edit, :destroy]
 
   NUMBER_OF_REVIEWS_ON_PAGE = 10
 
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    if @review.nil? && !current_user.admin
+      redirect_to reviews_path, notice: t('alerts.review.not_auth_user')
+    end
+  end
+
   def search
     if params[:search].present?
-      @results = Review.order(created_at: :desc).global_search(params[:search])
+      @reviews = Review.order(created_at: :desc).global_search(params[:search]).paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
     else
-      @results = Review.order(created_at: :desc)
+      @reviews = Review.order(created_at: :desc).paginate(page: params[:page], per_page: NUMBER_OF_REVIEWS_ON_PAGE)
     end
   end
 
@@ -31,7 +39,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    #@review = Review.new
+    @review = current_user.reviews.build
   end
 
   # GET /reviews/1/edit
@@ -40,7 +49,8 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    #@review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     respond_to do |format|
       if @review.save

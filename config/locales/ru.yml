@@ -43,7 +43,8 @@ ru:
   author: "Автор"
   cancel: "Отмена"
   tags: "Теги"
-  tags_placeholder: "Tags(movie, book, food...)"
+  tags_placeholder: "Теги(фильм, книга, еда...)"
+  save: "Сохранить"
 
   liked_page:
     liked_reviews: "Понравившееся обзоры"
@@ -63,9 +64,12 @@ ru:
       successfully_created: "Обзор был успешно создан."
       successfully_updated: "Обзор был успешно обовлён."
       successfully_destroyed: "Обзор был успешно удалён."
+      not_auth_user: "Недостаточно прав для редактирования."
 
     user:
       role_changed: "Роль была изменена."
       invalid_role: "Неверный параметр для роли."
       successfully_updated: "Пользователь был успешно обновлён."
       wasnt_updated: "Пользователь не был обновлён."
+      not_auth_user: "Недостаточно прав для данного действия."
+
