@@ -65,6 +65,8 @@ ru:
       successfully_updated: "Обзор был успешно обовлён."
       successfully_destroyed: "Обзор был успешно удалён."
       not_auth_user: "Недостаточно прав для редактирования."
+      not_auth_user_to_new: "Нужно войти, чтобы создать новый обзор."
+
 
     user:
       role_changed: "Роль была изменена."

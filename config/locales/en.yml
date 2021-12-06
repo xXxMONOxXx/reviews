@@ -70,6 +70,7 @@ en:
       successfully_updated: "Review was successfully updated."
       successfully_destroyed: "Review was successfully deleted."
       not_auth_user: "Not authorized to edit this review."
+      not_auth_user_to_new: "Not authorized to create new review."
 
     user:
       role_changed: "Role changed."
