@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 	before_action :set_theme
+	before_action :configure_permitted_parameters, if: :devise_controller?
+	before_action :set_locale
+
 
 	def set_theme
   		if params[:theme].present?
@@ -9,7 +12,6 @@ class ApplicationController < ActionController::Base
   		end
 	end
 
-	before_action :set_locale
 
   	private
 
@@ -28,7 +30,7 @@ class ApplicationController < ActionController::Base
       	nil
   	end
 	
-	before_action :configure_permitted_parameters, if: :devise_controller?
+	
 
   	protected
 	
