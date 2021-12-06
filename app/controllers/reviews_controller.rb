@@ -1,13 +1,17 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
-  before_action :correct_user, only: [:update, :edit, :destroy]
+  before_action :correct_user, only: [:update, :edit, :destroy, :new]
 
   NUMBER_OF_REVIEWS_ON_PAGE = 10
 
   def correct_user
-    @review = current_user.reviews.find_by(id: params[:id])
-    if (@review.nil? && !current_user.admin)
+    if !user_signed_in?
       redirect_to reviews_path, notice: t('alerts.review.not_auth_user')
+    else
+      @review = current_user.reviews.find_by(id: params[:id])
+      if (@review.nil? && !current_user.admin)
+        redirect_to reviews_path, notice: t('alerts.review.not_auth_user')
+      end
     end
   end
 

@@ -6,15 +6,23 @@ class UsersController < ApplicationController
   NUMBER_OF_REVIEWS_ON_PAGE = 10
 
   def show_user
-    @user = User.find_by(id: params[:id])
-    if (@user!=current_user && !current_user.admin)
+    if !user_signed_in?
       redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+    else
+      @user = User.find_by(id: params[:id])
+      if (@user!=current_user && !current_user.admin)
+        redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+      end
     end
   end
 
   def admin_user
-    if !current_user.admin
+    if !user_signed_in?
       redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+    else
+      if !current_user.admin
+        redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+      end
     end
   end
   
