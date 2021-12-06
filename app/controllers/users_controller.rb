@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
 
-  before_action :correct_user, only: [:index, :show, :change_role]
+  before_action :admin_user, only: [:index, :change_role]
+  before_action :show_user, only: [:show]
 
   NUMBER_OF_REVIEWS_ON_PAGE = 10
 
-  def correct_user
+  def show_user
+    @user = User.find_by(id: params[:id])
+    if (@user!=current_user && !current_user.admin)
+      redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
+    end
+  end
+
+  def admin_user
     if !current_user.admin
       redirect_to reviews_path, notice: t('alerts.user.not_auth_user')
     end

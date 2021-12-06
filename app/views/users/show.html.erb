@@ -1,19 +1,24 @@
 <h1> <%= @user.username %> </h1>
 
-<p>
-<strong><%= t 'role' %>:</strong>
 
-<% if @user.admin %>
-    <%=  t 'admin' %>
-    <%= link_to_unless @user.admin.eql?(false), t('dimiss_from_admin'), change_role_user_path(@user, admin:false), method: :patch, class:"btn btn-danger" %>
-  <% else %>
-    <%= t 'user' %>
-    <%= link_to_unless @user.admin.eql?(true), t('promote_to_admin'), change_role_user_path(@user, admin:true), method: :patch, class:"btn btn-primary" %>
-  <% end %>
-  
-</p>
+<% if current_user.admin %>
+  <p>
+  <strong><%= t 'role' %>:</strong>
 
-<%= @user.email %>
+    <% if @user.admin %>
+      <%=  t 'admin' %>
+      <%= link_to_unless @user.admin.eql?(false), t('dimiss_from_admin'), change_role_user_path(@user, admin:false), method: :patch, class:"btn btn-danger" %>
+    <% else %>
+      <%= t 'user' %>
+      <%= link_to_unless @user.admin.eql?(true), t('promote_to_admin'), change_role_user_path(@user, admin:true), method: :patch, class:"btn btn-primary" %>
+    <% end %>
+    
+  </p>
+  <strong><%= t('email')%>:</strong>
+    <%= @user.email %>
+<% end %>
+
+
 
 </br>
 

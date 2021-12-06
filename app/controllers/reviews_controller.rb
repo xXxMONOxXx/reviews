@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def correct_user
     @review = current_user.reviews.find_by(id: params[:id])
-    if @review.nil? && !current_user.admin
+    if (@review.nil? && !current_user.admin)
       redirect_to reviews_path, notice: t('alerts.review.not_auth_user')
     end
   end
@@ -39,18 +39,19 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    #@review = Review.new
-    @review = current_user.reviews.build
+    @review = Review.new
+    #@review = current_user.reviews.build
   end
 
   # GET /reviews/1/edit
   def edit
+    @review = Review.find params[:id]
   end
 
   # POST /reviews or /reviews.json
   def create
-    #@review = Review.new(review_params)
-    @review = current_user.reviews.build(review_params)
+    @review = Review.new(review_params)
+    #@review = current_user.reviews.build(review_params)
 
     respond_to do |format|
       if @review.save
@@ -65,6 +66,7 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
+    @review = Review.find params[:id]
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to @review, notice: t('alerts.review.successfully_updated')}
