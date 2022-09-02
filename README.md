@@ -1,24 +1,7 @@
-# README
+# Ruby on Rails - Reviews
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a reviews site, where user can create a review for anything.
 
-Things you may want to cover:
+In this project were used: PostgreSQL, SQLite.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Site on heroku - https://rails-mishas-reviews.herokuapp.com/
